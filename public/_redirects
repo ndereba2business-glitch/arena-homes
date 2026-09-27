@@ -1,0 +1,2 @@
+# Netlify: serve pre-rendered route HTML when it exists, otherwise the SPA shell.
+/*    /index.html   200

@@ -1,0 +1,10 @@
+node_modules
+dist
+*.local
+.env
+.env.*
+!.env.example
+.vite
+*.tsbuildinfo
+# original, full-size photos (process with `npm run images`)
+images-src

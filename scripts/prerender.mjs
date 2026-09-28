@@ -1,6 +1,6 @@
 /**
  * Post-build: bakes each route's <title>, description, canonical and Open Graph
- * tags into its own static HTML (dist/rooms/studio/index.html, …) so link
+ * tags into its own static HTML (dist/rooms/studio.html, …) so link
  * previews on WhatsApp, Facebook and X show the right page without running JS.
  * Also writes sitemap.xml, robots.txt and a 404.html fallback.
  *
@@ -45,7 +45,9 @@ function render(meta, { noindex = isConcept } = {}) {
 
 const routes = allRouteMeta()
 for (const meta of routes) {
-  const file = meta.path === '/' ? path.join(dist, 'index.html') : path.join(dist, meta.path, 'index.html')
+  // /rooms/studio → rooms/studio.html: every static host (Vercel cleanUrls, Netlify, vite preview)
+  // serves that at the canonical, slash-less URL; a directory index would need the trailing slash.
+  const file = meta.path === '/' ? path.join(dist, 'index.html') : path.join(dist, `${meta.path}.html`)
   await fs.mkdir(path.dirname(file), { recursive: true })
   await fs.writeFile(file, render(meta))
 }

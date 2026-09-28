@@ -36,7 +36,7 @@ export const reviews: Review[] = [
   },
   {
     id: 'r3',
-    name: 'Achieng’ A.',
+    name: 'Achieng A.',
     roomSlug: 'shared-room',
     detail: 'First-year student',
     quote: 'My parents were worried about security. After they saw the gate and met the caretaker, they stopped calling every night.',

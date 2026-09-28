@@ -463,8 +463,13 @@ export default function ReservePanel({
           )}
         </div>
         {!checkIn && !isViewing && !short && (
-          <button type="button" onClick={() => changeCheckIn(suggestedMoveIn())} className="-mt-1 text-xs text-clay-deep link-line">
-            Move in on {formatDate(suggestedMoveIn())}?
+          // 36px tap target; the negative margins keep the text where a bare line would sit
+          <button
+            type="button"
+            onClick={() => changeCheckIn(suggestedMoveIn())}
+            className="-mt-3.5 mb-1.5 flex min-h-9 w-fit items-center text-xs text-clay-deep"
+          >
+            <span className="link-line">Move in on {formatDate(suggestedMoveIn())}?</span>
           </button>
         )}
 

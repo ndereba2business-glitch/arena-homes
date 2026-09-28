@@ -286,8 +286,9 @@ export default function RoomPage() {
             </Link>
           </div>
           <ul className="mt-10 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8">
-            {others.map((r) => (
-              <li key={r.slug} data-reveal>
+            {others.map((r, i) => (
+              // the two-column tablet grid shows a full row of two rather than orphaning the third
+              <li key={r.slug} data-reveal className={i === 2 ? 'sm:max-lg:hidden' : undefined}>
                 <RoomCard room={r} />
               </li>
             ))}
